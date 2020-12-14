@@ -5,11 +5,11 @@ import androidx.lifecycle.ViewModel;
 public class MainActivityViewModelClass extends ViewModel {
     private int number = 0;
   public int DecreaseValue() {
-     return number--;
+     return --number;
   }
 
   public int IncreaseValue() {
-   return    number++;
+   return   ++ number;
   }
 
   public int Current(){
