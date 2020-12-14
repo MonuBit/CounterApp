@@ -2,6 +2,7 @@ package com.example.counterapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NavUtils;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
 import android.view.View;
@@ -11,7 +12,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
     private TextView textView ;
     private Button increase ,decrease;
-    private int number = 0;
+    MainActivityViewModelClass model = new ViewModelProvider(this).get(MainActivityViewModelClass.class);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,17 +23,19 @@ public class MainActivity extends AppCompatActivity {
         decrease = findViewById(R.id.MinusValue);
         textView = findViewById(R.id.TextViewNumber);
 
+        textView.setText(String.valueOf(model.Current()));
+
 
     }
 
     public void IncreaseValue(View view) {
-        number++;
-        textView.setText(""+number);
+
+            textView.setText(String.valueOf(model.DecreaseValue()));
 
     }
 
     public void DecreaseValue(View view) {
-        number--;
-        textView.setText(""+number);
+
+        textView.setText(String.valueOf(model.IncreaseValue()));
     }
 }
